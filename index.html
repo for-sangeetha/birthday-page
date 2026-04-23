@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Sangeetha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#fff7fb;
+      --bg2:#ffeef5;
+      --card:#ffffff;
+      --text:#4b3440;
+      --muted:#7c6570;
+      --accent:#e85d8e;
+      --accent2:#f59fbc;
+      --shadow:0 12px 35px rgba(232,93,142,0.14);
+      --radius:24px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      color:var(--text);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .bg-hearts span{
+      position:fixed;
+      bottom:-30px;
+      font-size:18px;
+      opacity:.18;
+      animation:floatUp linear infinite;
+      z-index:0;
+      user-select:none;
+    }
+
+    @keyframes floatUp{
+      from{
+        transform:translateY(0) scale(1);
+        opacity:.12;
+      }
+      to{
+        transform:translateY(-115vh) scale(1.4);
+        opacity:0;
+      }
+    }
+
+    .container{
+      position:relative;
+      z-index:1;
+      width:min(1000px,calc(100% - 28px));
+      margin:auto;
+      padding:28px 0 48px;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.92);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:32px 22px;
+    }
+
+    .hero-card{
+      width:min(760px,100%);
+    }
+
+    .tag{
+      display:inline-block;
+      background:#fff0f6;
+      color:var(--accent);
+      font-size:.9rem;
+      font-weight:700;
+      padding:8px 14px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+
+    h1{
+      margin:8px 0 8px;
+      font-size:clamp(2.2rem,6vw,4.5rem);
+      line-height:1.08;
+      font-weight:800;
+      color:var(--accent);
+    }
+
+    .sub{
+      font-size:clamp(1rem,2.3vw,1.15rem);
+      color:var(--muted);
+      line-height:1.8;
+      max-width:620px;
+      margin:0 auto 24px;
+    }
+
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+    }
+
+    button{
+      border:none;
+      border-radius:16px;
+      padding:14px 22px;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s ease;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;
+    }
+
+    .secondary{
+      background:white;
+      color:var(--text);
+    }
+
+    .section{
+      margin-top:26px;
+      display:none;
+    }
+
+    .section .card{
+      padding:28px 20px;
+    }
+
+    .section-title{
+      margin:0 0 18px;
+      text-align:center;
+      font-size:clamp(1.5rem,4vw,2.3rem);
+      font-weight:800;
+    }
+
+    .message-box{
+      max-width:760px;
+      margin:auto;
+      line-height:1.95;
+      font-size:1.03rem;
+      color:var(--text);
+      text-align:left;
+    }
+
+    .message-box strong{
+      color:var(--accent);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:8px;
+    }
+
+    .mini-card{
+      background:#fff;
+      border-radius:20px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.06);
+      padding:22px 18px;
+      text-align:center;
+    }
+
+    .emoji{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .mini-title{
+      font-size:1rem;
+      font-weight:700;
+      margin-bottom:8px;
+      color:var(--accent);
+    }
+
+    .mini-text{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.7;
+    }
+
+    .quote-box{
+      max-width:760px;
+      margin:auto;
+      text-align:center;
+      font-size:1.08rem;
+      line-height:1.9;
+      color:var(--text);
+    }
+
+    .quote-line{
+      margin-top:14px;
+      font-weight:700;
+      color:var(--accent);
+    }
+
+    .cake-wrap{
+      text-align:center;
+    }
+
+    .cake{
+      font-size:4rem;
+      margin:12px 0;
+    }
+
+    .final{
+      margin-top:14px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:26px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .confetti{
+      position:fixed;
+      top:-15px;
+      width:10px;
+      height:16px;
+      z-index:999;
+      animation:fall linear forwards;
+    }
+
+    @keyframes fall{
+      to{
+        transform:translateY(115vh) rotate(680deg);
+      }
+    }
+
+    .lock-screen{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:linear-gradient(135deg, rgba(255,247,251,0.97), rgba(255,238,245,0.97));
+      backdrop-filter:blur(6px);
+    }
+
+    .lock-card{
+      width:min(460px,100%);
+      text-align:center;
+      background:rgba(255,255,255,0.96);
+      border-radius:28px;
+      box-shadow:0 18px 45px rgba(232,93,142,0.18);
+      padding:32px 22px;
+    }
+
+    .lock-icon{
+      font-size:3rem;
+      margin-bottom:10px;
+    }
+
+    .lock-title{
+      font-size:1.8rem;
+      font-weight:800;
+      color:var(--accent);
+      margin-bottom:8px;
+    }
+
+    .lock-text{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:20px;
+      font-size:1rem;
+    }
+
+    .pin-input{
+      width:100%;
+      max-width:260px;
+      padding:14px 16px;
+      border:2px solid #f3c7d7;
+      border-radius:16px;
+      outline:none;
+      font-size:1.3rem;
+      text-align:center;
+      letter-spacing:8px;
+      color:var(--text);
+      background:#fff;
+      margin-bottom:14px;
+    }
+
+    .pin-input:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(232,93,142,0.1);
+    }
+
+    .error-msg{
+      min-height:24px;
+      color:#d6456f;
+      font-size:.95rem;
+      margin-top:6px;
+      font-weight:600;
+    }
+
+    .hint{
+      margin-top:10px;
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .hidden-lock{
+      display:none;
+    }
+
+    @media(max-width:640px){
+      .hero-card,.section .card,.lock-card{
+        padding:24px 16px;
+      }
+
+      button{
+        width:100%;
+      }
+
+      .pin-input{
+        letter-spacing:6px;
+        font-size:1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-hearts" id="bgHearts"></div>
+
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-card">
+      <div class="lock-icon">🔐</div>
+      <div class="lock-title">A Small Birthday Surprise</div>
+      <div class="lock-text">
+        This page is locked for now.<br>
+        Enter the 6-digit secret code to open the surprise ✨
+      </div>
+
+      <input
+        type="password"
+        inputmode="numeric"
+        maxlength="6"
+        class="pin-input"
+        id="pinInput"
+        placeholder="••••••"
+        autocomplete="off"
+      >
+
+      <div class="btns">
+        <button class="primary" onclick="unlockPage()">Unlock Surprise</button>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+      <div class="hint">Secret code will be shared later 😄</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <div class="card hero-card">
+        <div class="tag">A birthday webpage made specially for you 🎉</div>
+        <h1>Happy Birthday Sangeetha</h1>
+        <p class="sub">
+          A simple little page filled with good wishes, positivity, and a few words
+          to make your special day feel even more special.
+        </p>
+        <div class="btns">
+          <button class="primary" onclick="openSurprise()">Open Birthday Wishes ✨</button>
+          <button class="secondary" onclick="showSection('messageSection')">Read Message 💌</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="messageSection">
+      <div class="card">
+        <h2 class="section-title">Birthday Wishes For You 💐</h2>
+        <div class="message-box">
+          Dear Sangeetha,<br><br>
+
+          Wishing you a very happy birthday and a truly wonderful year ahead. 🎂<br><br>
+
+          May this new year of your life bring you good health, peace, happiness, and plenty of beautiful moments.
+          May every day ahead give you more reasons to smile, feel proud, and stay positive.<br><br>
+
+          You are a genuinely kind and memorable person, and I feel really happy to wish you on your special day.
+          May all the good things you deserve come your way in the best possible manner.<br><br>
+
+          Enjoy your birthday, spend it happily, and make lovely memories today. 😊<br><br>
+
+          <strong>Once again, happy birthday to you!</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="qualitiesSection">
+      <div class="card">
+        <h2 class="section-title">A Few Nice Things About You 🌸</h2>
+        <div class="grid">
+          <div class="mini-card">
+            <div class="emoji">😊</div>
+            <div class="mini-title">Positive Nature</div>
+            <div class="mini-text">You carry a calm and pleasant energy that makes conversations feel easy and comfortable.</div>
+          </div>
+          <div class="mini-card">
+            <div class="emoji">✨</div>
+            <div class="mini-title">Good Presence</div>
+            <div class="mini-text">Some people naturally leave a good impression, and you are definitely one of them.</div>
+          </div>
+          <div class="mini-card">
+            <div class="emoji">🌷</div>
+            <div class="mini-title">Simple & Genuine</div>
+            <div class="mini-text">There is something very genuine and nice in the way you are, and that is always appreciated.</div>
+          </div>
+          <div class="mini-card">
+            <div class="emoji">🎉</div>
+            <div class="mini-title">Special Day</div>
+            <div class="mini-text">Today is all about celebrating you and wishing you all the happiness in the world.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quoteSection">
+      <div class="card">
+        <h2 class="section-title">For Your Birthday 🌟</h2>
+        <div class="quote-box">
+          May your day be filled with happiness,<br>
+          your heart be filled with peace,<br>
+          and your year be filled with meaningful moments.<br>
+
+          <div class="quote-line">Wishing you nothing but the best always.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cakeSection">
+      <div class="card">
+        <h2 class="section-title">Celebrate Your Day 🎂</h2>
+        <div class="cake-wrap">
+          <div class="cake">🎂</div>
+          <button class="primary" onclick="celebrate()">Celebrate 🎉</button>
+          <div class="final">
+            Have a beautiful birthday and a lovely year ahead.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Made with warm birthday wishes for Sangeetha ✨
+    </div>
+  </div>
+
+  <script>
+    const SECRET_PIN = "637992";
+
+    const heartWrap = document.getElementById("bgHearts");
+    const symbols = ["💮","✨","🌸","💐","🎉"];
+
+    for(let i=0;i<24;i++){
+      const s = document.createElement("span");
+      s.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      s.style.left = Math.random()*100 + "vw";
+      s.style.animationDuration = (8 + Math.random()*8) + "s";
+      s.style.animationDelay = (Math.random()*6) + "s";
+      s.style.fontSize = (16 + Math.random()*12) + "px";
+      heartWrap.appendChild(s);
+    }
+
+    function showSection(id){
+      document.getElementById(id).style.display = "block";
+      document.getElementById(id).scrollIntoView({behavior:"smooth"});
+    }
+
+    function openSurprise(){
+      ["messageSection","qualitiesSection","quoteSection","cakeSection"].forEach(id=>{
+        document.getElementById(id).style.display = "block";
+      });
+      document.getElementById("messageSection").scrollIntoView({behavior:"smooth"});
+      burstConfetti(70);
+    }
+
+    function celebrate(){
+      burstConfetti(120);
+      alert("Happy Birthday Sangeetha 🎉");
+    }
+
+    function unlockPage(){
+      const pinInput = document.getElementById("pinInput");
+      const errorMsg = document.getElementById("errorMsg");
+      const enteredPin = pinInput.value.trim();
+
+      if(enteredPin === SECRET_PIN){
+        document.getElementById("lockScreen").classList.add("hidden-lock");
+        burstConfetti(90);
+      } else {
+        errorMsg.textContent = "Wrong code. Please enter the correct 6-digit number.";
+        pinInput.value = "";
+        pinInput.focus();
+      }
+    }
+
+    document.getElementById("pinInput").addEventListener("keypress", function(e){
+      if(e.key === "Enter"){
+        unlockPage();
+      }
+    });
+
+    function burstConfetti(count){
+      const colors = ["#e85d8e","#f59fbc","#ffd166","#95d5b2","#a0c4ff","#cdb4db"];
+      for(let i=0;i<count;i++){
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random()*100 + "vw";
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+        c.style.animationDuration = (2.5 + Math.random()*2.5) + "s";
+        c.style.width = (8 + Math.random()*6) + "px";
+        c.style.height = (12 + Math.random()*10) + "px";
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),5200);
+      }
+    }
+  </script>
+</body>
+</html>
